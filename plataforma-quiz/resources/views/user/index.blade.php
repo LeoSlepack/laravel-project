@@ -18,6 +18,7 @@
          <h1>Administração de usuários</h1>
          <br>
          <a href="{{route('user.create')}}" class="btn btn-primary">Criar usuário</a>
+         <br> <br>
          <div class="container">
             <table id="table-users" class="table">
                 <thead>
