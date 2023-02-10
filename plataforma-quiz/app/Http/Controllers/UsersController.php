@@ -28,7 +28,27 @@ class UsersController extends Controller
 
     public function edit($id) {
 
-        dd($id);
+        $user = User::find($id);
+        return view('user.edit', [
+            'user' => $user
+        ]);
+
+    }
+
+    public function update(Request $request, $id){
+
+        $data = $request->only(['name', 'email']);
+        $user = User::find($id);
+        $user->update($data);
+        return redirect()->back();
+
+    }
+
+    public function destroy($id) {
+
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back();
 
     }
 }
