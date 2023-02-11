@@ -33,3 +33,7 @@ Route::delete('/user/delete/{id}',[App\Http\Controllers\UsersController::class, 
 Route::get('/createquiz', function () {
     return view('quiz.create');
 });
+
+Route::get('/quizzes', function () {
+    return view('quiz.quizzes');
+});

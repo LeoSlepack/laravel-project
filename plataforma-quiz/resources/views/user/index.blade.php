@@ -7,8 +7,7 @@
      <div class="container">
         <h1>Jogue ou crie seu Quiz</h1>
         <br>
-        <a href="#" class="btn btn-primary">Jogar</a>
-        <a href="/createquiz" class="btn btn-primary">Criar um quiz</a>
+        <a href="/quizzes" class="btn btn-primary">Ver Quizzes</a>
      </div>
     <br>
      <div class="container">
