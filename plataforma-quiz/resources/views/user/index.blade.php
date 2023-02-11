@@ -2,9 +2,6 @@
 @extends('adminlte::page')
 
 <!--ADMINLTE-->
-@section('title', 'Dashboard')
-
-<!--ADMINLTE-->
 @section('content_header')
     
      <div class="container">

@@ -17,7 +17,7 @@ class UsersController extends Controller
 
     }
 
-    public function create($id) {
+    public function create() {
 
         return view('user.create');
 
@@ -30,6 +30,14 @@ class UsersController extends Controller
             'user' => $user
         ]);
 
+    }
+
+    public function store(Request $request) {
+
+        $data = $request->only(['name', 'email']);
+        $data['password'] = bcrypt('password');
+        User::create($data);
+        return redirect()->route('user.index');
     }
 
     public function edit($id) {
@@ -46,7 +54,7 @@ class UsersController extends Controller
         $data = $request->only(['name', 'email']);
         $user = User::find($id);
         $user->update($data);
-        return redirect()->back();
+        return redirect()->route('user.index');
 
     }
 
@@ -54,7 +62,7 @@ class UsersController extends Controller
 
         $user = User::find($id);
         $user->delete();
-        return redirect()->back();
+        return redirect()->route('user.index');
 
     }
 }
