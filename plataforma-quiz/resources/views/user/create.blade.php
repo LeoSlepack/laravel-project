@@ -19,6 +19,10 @@
             <button type="submit" class="btn btn-primary">Atualizar</button>
         </form>
      </div>
+
+    <a href="/users">
+        <x-adminlte-button label="Voltar a página inicial" theme="warning" />
+    </a> 
     
 @stop
 
