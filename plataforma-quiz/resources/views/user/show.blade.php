@@ -18,15 +18,20 @@
                 <tbody>
                     
                         <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
+                            <th scope="row">{{$user->id}}</th>
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
                         </tr>
                    
                 </tbody>
             </table>
+            <a href="/users">
+                <x-adminlte-button label="Voltar a página inicial" theme="warning" />
+            </a> 
          </div>
      </div>
+
+    
     
 @stop
 

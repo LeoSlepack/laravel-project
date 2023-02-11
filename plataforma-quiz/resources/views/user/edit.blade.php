@@ -18,8 +18,13 @@
                 <input type="email" value="{{$user->email}}" class="form-control" name="email" id="email" required placeholder="Digite seu melhor email">
             </div>
             <button type="submit" class="btn btn-primary">Atualizar</button>
+            <br> <br>
+            <a href="/users">
+                <x-adminlte-button label="Voltar a página inicial" theme="warning" />
+            </a> 
         </form>
      </div>
+    
     
 @stop
 
