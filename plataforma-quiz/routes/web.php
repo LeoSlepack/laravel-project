@@ -19,6 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\UsersController::class, 'index']);
+Route::get('/usuarios/adicionar', [App\Http\Controllers\UsersController::class, 'create'])->name('user.create');
+Route::post('/usuarios/adicionar', [App\Http\Controllers\UsersController::class, 'store'])->name('user.store');
+Route::get('/', [App\Http\Controllers\UsersController::class, 'index'])->name('user.index');
 Route::get('/{id}', [App\Http\Controllers\UsersController::class, 'show'])->name('user.show');
 Route::get('/edit/{id}', [App\Http\Controllers\UsersController::class, 'edit'])->name('user.edit');
+Route::put('/usuario/update/{id}',[App\Http\Controllers\UsersController::class, 'update'])->name('user.update');
+Route::delete('/user/delete/{id}',[App\Http\Controllers\UsersController::class, 'destroy'])->name('user.destroy');

@@ -2,9 +2,6 @@
 @extends('adminlte::page')
 
 <!--ADMINLTE-->
-@section('title', 'Dashboard')
-
-<!--ADMINLTE-->
 @section('content_header')
     
      <div class="container">
@@ -17,6 +14,8 @@
      <div class="container">
          <h1>Administração de usuários</h1>
          <br>
+         <a href="{{route('user.create')}}" class="btn btn-primary">Criar usuário</a>
+         <br> <br>
          <div class="container">
             <table id="table-users" class="table">
                 <thead>
@@ -26,6 +25,7 @@
                     <th scope="col">Email</th>
                     <th scope="col">Botão Visualizar</th>
                     <th scope="col">Botão Editar</th>
+                    <th scope="col">Botão Exclusão</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,6 +39,13 @@
                             </td>
                             <td>
                                 <a type="button" href="{{route('user.edit', $user->id)}}" class="btn btn-primary">Editar</a>
+                            </td>
+                            <td>
+                            <form action="{{route('user.destroy', $user->id)}}" method="POST">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="btn btn-danger">Excluir usuário</button>
+                            </form>
                             </td>
                         </tr>
                     @endforeach
