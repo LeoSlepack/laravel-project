@@ -9,31 +9,16 @@
     <x-adminlte-button label="Voltar a página inicial" theme="warning" />
 </a> 
 <br> <br>
-<div class="container">
-    <table id="table-quizzes" class="table">
-      <thead>
-        <tr>
-          <th scope="col">Imagem</th>
-          <th scope="col">Título do Quiz</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><img src="quiz1-cover.jpg" alt="Quiz 1 Cover" style="width: 50px;"></td>
-          <td>Quiz 1</td>
-        </tr>
-        <tr>
-          <td><img src="quiz2-cover.jpg" alt="Quiz 2 Cover" style="width: 50px;"></td>
-          <td>Quiz 2</td>
-        </tr>
-        <tr>
-          <td><img src="quiz3-cover.jpg" alt="Quiz 3 Cover" style="width: 50px;"></td>
-          <td>Quiz 3</td>
-        </tr>
-      </tbody>
-    </table>
-</div>
-
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        </div>
+    </div>
+  </div>
 
 @stop
 
