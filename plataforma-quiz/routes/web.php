@@ -39,8 +39,6 @@ Route::get('/homequiz', function () {
 });
 
 
-Route::get('/quizzes/create', [App\Http\Controllers\QuizController::class, 'create']);
-Route::post('/quizzes',  [App\Http\Controllers\QuizController::class, 'store']);
 
 
 

@@ -20,6 +20,13 @@
     </div>
   </div>
 
+@foreach ($quizzes as $quiz)
+
+    <p>{{ $quiz->title }}--{{ $quiz->description }}</p>
+
+@endforeach
+
+
 @stop
 
 <!--CSS ADMINLTE-->

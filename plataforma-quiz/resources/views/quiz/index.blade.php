@@ -10,15 +10,15 @@
             @csrf
             <x-adminlte-input name="title"  id="title" type="text" label="Título:" placeholder="Insira o título do quiz" required/>
 
-            <x-adminlte-input-file accept="image/*" id="imgQuiz" name="imgQuiz" label="imagem para quiz" placeholder="Insira uma imagem para ilustrar seu quiz" igroup-size="lg" legend="Choose" multiple>
-            </x-adminlte-input-file>
+           <!-- <x-adminlte-input-file accept="image/*" id="imgQuiz" name="imgQuiz" label="imagem para quiz" placeholder="Insira uma imagem para ilustrar seu quiz" igroup-size="lg" legend="Choose" multiple>
+            </x-adminlte-input-file> -->
 
             <x-adminlte-textarea name="descriptionQuiz" id="descriptionQuiz" label="Descrição:" rows=3  igroup-size="sm" placeholder="Descreva seu quiz required">
             </x-adminlte-textarea>
 
             <x-adminlte-input name="questionQuiz"  id="questionQuiz" type="text" label="Pergunta:" placeholder="Digite sua pergunta" required/>
 
-            <div class="form-group">
+           <!-- <div class="form-group">
                 <label for="correctAnswers">Número de respostas corretas</label>
                 <select class="form-control" id="correctAnswers">
                     <option value="1" {{ old('num_correct_answers', 1) == 1 ? 'selected' : '' }}>1</option>
@@ -31,18 +31,18 @@
                     <label for="correctAnswer1">Resposta Correta 1</label>
                     <input type="text" class="form-control" id="correctAnswer1" name="correctAnswer1" placeholder="Insira a resposta correta" required>
                 </div>
-            </div>
+            </div> -->
             
             <div class="form-group">
                 <label for="incorrectAnswer">Resposta Incorreta</label>
                 <input type="text" class="form-control" id="incorrectAnswer" name="incorrectAnswer" placeholder="Insira uma resposta incorreta" required>
-            </div>
+            </div> 
 
 
             <button type="submit" class="btn btn-primary">Criar Quiz</button></a>
         </form>
 
-    <script>
+   <!-- <script>
             const correctAnswersSelect = document.querySelector("#correctAnswers");
             const answerInputsContainer = document.querySelector("#answerInputs");
 
@@ -65,7 +65,7 @@
                 answerInputsContainer.appendChild(newInput);
             }
         });
-    </script>
+    </script> -->
 
 @stop
 
