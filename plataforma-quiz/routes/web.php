@@ -30,12 +30,10 @@ Route::put('/usuario/update/{id}',[App\Http\Controllers\UsersController::class, 
 Route::delete('/user/delete/{id}',[App\Http\Controllers\UsersController::class, 'destroy'])->name('user.destroy');
 
 ///Views responsáveis pela parte dos quizzes
+Route::get('/homequiz', [App\Http\Controllers\QuizController::class, 'index'])->name('homequiz.index');
+
 Route::get('/index', function () {
     return view('quiz.index');
-});
-
-Route::get('/homequiz', function () {
-    return view('quiz.homequiz');
 });
 
 
