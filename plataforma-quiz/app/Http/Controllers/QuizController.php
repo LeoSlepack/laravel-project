@@ -47,13 +47,16 @@ class QuizController extends Controller
 
         $quiz->save();
 
-        return redirect('/homequiz')->with('msg', 'Quiz criado com sucesso!');
+        return redirect('/homequiz');
 
     }
 
   
     public function show($id) {
-        //
+
+        $quiz = Quiz::findOrfail($id);
+        return view('quiz.show', ['quiz' => $quiz]);
+        
     }
 
     

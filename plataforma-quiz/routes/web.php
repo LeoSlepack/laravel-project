@@ -35,6 +35,7 @@ Route::get('/index', function () {
 });
 Route::get('/homequiz', [App\Http\Controllers\QuizController::class, 'index'])->name('homequiz.index');
 Route::get('/homequiz/create', [App\Http\Controllers\QuizController::class, 'create'])->name('homequiz.create');
+Route::get('/homequiz/{id}', [App\Http\Controllers\QuizController::class, 'show'])->name('homequiz.show');
 Route::post("/homequiz",[App\Http\Controllers\QuizController::class, 'store'])->name('homequiz.store');
 
 
