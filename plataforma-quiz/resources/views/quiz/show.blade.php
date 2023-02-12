@@ -1,29 +1,35 @@
 <!--ADMINLTE-->
 @extends('adminlte::page')
-
 <!--ADMINLTE-->
 @section('content_header')
-
-<link rel="stylesheet" href="/css/styles.css">
-
-    <div class="col-md-10 offset-md-1">
-        <div class="row">
-            <div id="image-container" class="col-md-6">
-               <img src="/imagens/quiz/{{ $quiz->image }}" class="img-fluid" alt="Imagem ilustração do quiz"> 
-            </div>
-            <div id="info-container" class="col-md-6">
-                <h1>{{ $quiz->title }}</h1>
-                <h5>Descrição do Quiz</h5>
-                <p class="description">{{ $quiz->description }}</p>
-                <h5>Pergunta</h5>
-                <p class="question">{{ $quiz->question }}</p>
-                <h5>Respostas</h5>
-                <input type="checkbox" name="answerquiz" id="answerquiz">
-                <label for="answerquiz">{{ $quiz->answer }}</label> <br>
-                <a href="#" class="btn btn-primary">Enviar resposta</a>
-            </div>
+<div class="container">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">{{ $quiz->title }}</h3>
         </div>
-       
+        <form role="form">
+            <div class="card-body">
+                <div class="form-group">
+                    <img src="/imagens/quiz/{{ $quiz->image }}" class="img-fluid" alt="Imagem ilustração do quiz"> 
+                </div>
+                <input class="form-control" id="description" value="{{ $quiz->description }}" readonly> <br>
+                <input class="form-control" id="question" value="{{ $quiz->question }}"readonly> <br>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="correctAnswer" id="answerTrue" value="true">
+                    <label class="form-check-label" for="answerTrue">{{ $quiz->answer }}</label>
+                </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="correctAnswer" id="answerFalse" value="false">
+                <label class="form-check-label" for="answerFalse">Falsa</label>
+            </div>
+            </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </form>
     </div>
-
+</div>
+<a href="/users"><x-adminlte-button label="Voltar a página inicial" theme="warning" /></a>
 @stop
