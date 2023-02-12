@@ -34,9 +34,20 @@ class QuizController extends Controller
         $quiz->question = $request->question;
         $quiz->answer = $request->answer;
 
+        //upload de imagem
+        if($request->hasFile('image') && $request->file('image')->isValid()) {
+
+            $requestImage = $request->image;
+            $extension = $requestImage->extension();
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $requestImage->move(public_path('imagens/quiz'), $imageName);
+            $quiz->image = 'imagens/quiz/' . $imageName;
+
+        }
+
         $quiz->save();
 
-        return redirect('/homequiz');
+        return redirect('/homequiz')->with('msg', 'Quiz criado com sucesso!');
 
     }
 

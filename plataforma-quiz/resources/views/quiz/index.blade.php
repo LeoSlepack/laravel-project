@@ -6,12 +6,12 @@
         <a href="/users">
                 <x-adminlte-button label="Voltar a página inicial" theme="warning" />
         </a> <br> <br>
-        <form action="/homequiz" method="POST">
+        <form action="/homequiz" method="POST" enctype="multipart/form-data">
             @csrf
             <x-adminlte-input name="title"  id="title" type="text" label="Título:" placeholder="Insira o título do quiz" required/>
 
-           <!-- <x-adminlte-input-file accept="image/*" id="imgQuiz" name="imgQuiz" label="imagem para quiz" placeholder="Insira uma imagem para ilustrar seu quiz" igroup-size="lg" legend="Choose" multiple>
-            </x-adminlte-input-file> -->
+            <x-adminlte-input-file type="file" id="image" name="image" label="imagem para quiz:" placeholder="Insira uma imagem para ilustrar seu quiz" igroup-size="lg" legend="Choose" multiple>
+            </x-adminlte-input-file> 
 
             <x-adminlte-textarea name="description" id="description" label="Descrição:" rows=3  igroup-size="sm" placeholder="Descreva seu quiz required">
             </x-adminlte-textarea>

@@ -19,7 +19,7 @@
     <div id="cards-container" class="row">
         @foreach($quizzes as $quiz)
         <div class="card col-md-3">
-            <img src="/imagens/sitedroid.svg" alt="{{ $quiz->title }}">
+            <img src="/imagens/quiz/{{ $quiz->image }}" alt="{{ $quiz->title }}">
             <h5 class="card-title">{{ $quiz->title }}</h5>
             <a href="" class="btn btn-primary">Jogar</a>
         </div>
