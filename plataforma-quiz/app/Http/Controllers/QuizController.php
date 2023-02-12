@@ -17,69 +17,46 @@ class QuizController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
+   
+    public function create() {
+
+        return view('quiz.homequiz');        
+        
+    }
+
+   
+    public function store(Request $request) {
+
+        $quiz = new Quiz;
+
+        $quiz->title = $request->title;
+        $quiz->description = $request->description;
+        $quiz->question = $request->question;
+        $quiz->answer = $request->answer;
+
+        $quiz->save();
+
+        return redirect('/homequiz');
+
+    }
+
+  
+    public function show($id) {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
+    
+    public function edit($id) {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
+    
+    public function update(Request $request, $id) {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
+   
+    public function destroy($id) {
         //
     }
 }

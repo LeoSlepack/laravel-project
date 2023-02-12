@@ -4,29 +4,32 @@
 <!--ADMINLTE-->
 @section('content_header')
 
-<div class="container">
-    <a href="/index" class="btn btn-primary">Criar um quiz</a>
+<link rel="stylesheet" href="/css/styles.css">
+
+<div id="serach-container" class="col-md-12">
+    <h1>Busque por um Quiz</h1>
+    <form action="">
+        <input type="text" id="search" name="search" class="form-control" placeholder="Procurar...">
+    </form><br>
+    <a href="/index" class="btn btn-primary">Criar Quiz</a>
+</div> <br>
+<div id="quizzes-container" class="col-md-12">
+    <h2>Quizzes</h2>
+    <p>Jogue e se divirta</p>
+    <div id="cards-container" class="row">
+        @foreach($quizzes as $quiz)
+        <div class="card col-md-3">
+            <img src="/imagens/sitedroid.svg" alt="{{ $quiz->title }}">
+            <h5 class="card-title">{{ $quiz->title }}</h5>
+            <a href="" class="btn btn-primary">Jogar</a>
+        </div>
+        @endforeach
+    </div>
+    <br>
     <a href="/users">
         <x-adminlte-button label="Voltar a página inicial" theme="warning" />
-    </a>
-    <br><br>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <div class="col">
-        <div class="card">
-          <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-        </div>
-      </div>
+    </a> 
 </div>
-
-@foreach ($quizzes as $quiz)
-
-    <p>{{ $quiz->title }}--{{ $quiz->description }}</p>
-
-@endforeach
 
 @stop
 
