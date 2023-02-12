@@ -6,7 +6,7 @@
         <a href="/users">
                 <x-adminlte-button label="Voltar a página inicial" theme="warning" />
         </a> <br> <br>
-        <form action="/quizzes" method="POST">
+        <form action="" method="POST">
             @csrf
             <x-adminlte-input name="title"  id="title" type="text" label="Título:" placeholder="Insira o título do quiz" required/>
 
@@ -18,20 +18,20 @@
 
             <x-adminlte-input name="questionQuiz"  id="questionQuiz" type="text" label="Pergunta:" placeholder="Digite sua pergunta" required/>
 
-           <!-- <div class="form-group">
+          <!-- <div class="form-group">
                 <label for="correctAnswers">Número de respostas corretas</label>
                 <select class="form-control" id="correctAnswers">
                     <option value="1" {{ old('num_correct_answers', 1) == 1 ? 'selected' : '' }}>1</option>
                     <option value="2" {{ old('num_correct_answers', 1) == 2 ? 'selected' : '' }}>2</option>
                 </select>
-            </div>
+            </div> -->
 
             <div id="answerInputs">
                 <div class="form-group">
                     <label for="correctAnswer1">Resposta Correta 1</label>
                     <input type="text" class="form-control" id="correctAnswer1" name="correctAnswer1" placeholder="Insira a resposta correta" required>
                 </div>
-            </div> -->
+            </div> 
             
             <div class="form-group">
                 <label for="incorrectAnswer">Resposta Incorreta</label>

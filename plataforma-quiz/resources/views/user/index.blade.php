@@ -7,7 +7,7 @@
      <div class="container">
         <h1>Jogue ou crie seu Quiz</h1>
         <br>
-        <a href="/index" class="btn btn-primary">Ver Quizzes</a>
+        <a href="{{route('homequiz.index')}}" class="btn btn-primary">Ver Quizzes</a>
      </div>
     <br>
      <div class="container">
