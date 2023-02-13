@@ -2,8 +2,10 @@
 @extends('adminlte::page')
 <!--ADMINLTE-->
 @section('content_header')
-<a href="/index" class="btn btn-primary">Criar Quiz</a><br><br>
-<a href="/users"><x-adminlte-button label="Voltar a página inicial" theme="warning" /></a><br><br>
+<div class="container">
+    <a href="/index" class="btn btn-primary">Criar Quiz</a><br><br>
+    <a href="/users"><x-adminlte-button label="Voltar a página inicial" theme="warning" /></a><br><br>
+</div>
 <div class="container">
     <table id="table-quizzes" class="table">
         <thead>

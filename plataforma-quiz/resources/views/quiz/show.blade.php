@@ -10,7 +10,7 @@
         <form role="form">
             <div class="card-body">
                 <div class="form-group">
-                    <img src="/imagens/quiz/{{ $quiz->image }}" class="img-fluid" alt="Imagem ilustração do quiz"> 
+                    <img id="img-quiz-table" src="/imagens/quiz/{{ $quiz->image }}" class="img-fluid" alt="Imagem ilustração do quiz"> 
                 </div>
                 <input class="form-control" id="description" value="{{ $quiz->description }}" readonly> <br>
                 <input class="form-control" id="question" value="{{ $quiz->question }}"readonly> <br>
@@ -31,5 +31,8 @@
         </form>
     </div>
 </div>
-<a href="/users"><x-adminlte-button label="Voltar a página inicial" theme="warning" /></a>
+<div class="container">
+    <a href="/users"><x-adminlte-button label="Voltar a página inicial" theme="warning" /></a>
+</div>
 @stop
+

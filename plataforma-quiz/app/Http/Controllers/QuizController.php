@@ -42,7 +42,7 @@ class QuizController extends Controller
             $extension = $requestImage->extension();
             $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
             $requestImage->move(public_path('imagens/quiz'), $imageName);
-            $quiz->image = 'imagens/quiz/' . $imageName;
+            $quiz->image =  $imageName;
 
         }
 
