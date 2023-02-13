@@ -71,7 +71,9 @@ class QuizController extends Controller
     
     public function update(Request $request, $id) {
         
-        
+        Quiz::findOrfail($request->id)->update($request->all());
+        return redirect('/homequiz');
+
 
     }
 
