@@ -3,11 +3,8 @@
 <!--ADMINLTE-->
 @section('content_header')
 <div class="container">
-    <x-adminlte-profile-widget name="Leonardo Slepack" desc="Desenvolvedor de Software" theme="gray"
+    <x-adminlte-profile-widget name="Leonardo Slepack" desc="Desenvolvedor dessa aplicação" theme="gray"
         img="\imagens\fotoperfil.png" footer-class="bg-gradient-gray">
-        <x-adminlte-profile-col-item icon="fab fa-2x fa-instagram" text="Instagram" badge="blue" size=4/>
-        <x-adminlte-profile-col-item icon="fab fa-2x fa-facebook" text="Facebook" badge="blue" size=4/>
-        <x-adminlte-profile-col-item icon="fab fa-2x fa-twitter" text="Twitter" badge="blue" size=4/>
     </x-adminlte-profile-widget>
 </div>
 <div class="container">

@@ -12,10 +12,8 @@
                 <div class="form-group">
                     <img src="/imagens/quiz/{{ $quiz->image }}" class="img-fluid" alt="Imagem ilustração do quiz"> 
                 </div>
-                <label for="description">Descrição:</label>
-                <input class="form-control" name="description" id="description" value="{{ $quiz->description }}" readonly><br>
-                <label for="question">Pergunta:</label>
-                <input class="form-control" name="question" id="question" value="{{ $quiz->question }}"readonly><br>
+                <x-adminlte-textarea id="description" name="description" label="Descrição:" placeholder="{{ $quiz->description }}" readonly/>
+                <x-adminlte-input id="question" name="question" label="Pergunta:" value="{{ $quiz->question }}" readonly/>
             <div class="form-group">
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="correctAnswer" id="answerTrue" value="true">

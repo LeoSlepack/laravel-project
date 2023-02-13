@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 <!--ADMINLTE-->
 @section('content_header')
-<div class="container">
+<div id="quiz-create-form" class="container">
     <form id="form-quiz-create" action="/homequiz" method="POST" enctype="multipart/form-data">
         @csrf
         <x-adminlte-input id="title" name="title" label="Título do quiz:" placeholder="Digite o título do seu quiz" required/>
