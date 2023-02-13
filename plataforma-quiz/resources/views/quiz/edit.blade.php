@@ -7,7 +7,7 @@
         @csrf
         @method('PUT')
         <x-adminlte-input id="title" name="title" label="Título do quiz:" value="{{ $quiz->title }}" required/>
-        <x-adminlte-textarea id="description" name="description" label="Descrição:" placeholder="{{ $quiz->description }}" required/>
+        <x-adminlte-textarea id="description" name="description" label="Descrição:" placeholder="{{ $quiz->description }}"/>
         <div class="form-group">
             <x-adminlte-input-file type="file" id="image" name="image" label="Imagem:"/>
             <img src="/imagens/quiz/{{ $quiz->image }}" class="img-fluid" alt="Imagem Quiz">
