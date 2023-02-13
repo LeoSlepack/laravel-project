@@ -12,6 +12,7 @@
             <th scope="col">Título</th>
             <th scope="col">descrição</th>
             <th scope="col">Botão para jogar</th>
+            <th scope="col">Boão de edição</th>
             </tr>
         </thead>
         <tbody>
@@ -20,7 +21,8 @@
                     <th scope="row"><img src="/imagens/quiz/{{ $quiz->image }}" alt="{{ $quiz->title }}"></th>
                     <td>{{ $quiz->title }}</td>
                     <td>{{ $quiz->description }}</td>
-                    <td><a href="/homequiz/{{ $quiz->id }}" class="btn btn-primary">Jogar</a></td>
+                    <td><a href="/homequiz/{{ $quiz->id }}" class="btn btn-success">Jogar</a></td>
+                    <td><a href="#" class="btn btn-primary">Editar</a></td>
                 </tr>
             @endforeach
         </tbody>

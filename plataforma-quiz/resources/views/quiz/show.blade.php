@@ -21,7 +21,7 @@
                 </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="correctAnswer" id="answerFalse" value="false">
-                <label class="form-check-label" for="answerFalse">Falsa</label>
+                <label class="form-check-label" for="answerFalse">{{ $quiz->incorrectanswer }}</label>
             </div>
             </div>
             </div>
