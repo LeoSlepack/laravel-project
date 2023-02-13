@@ -72,6 +72,9 @@ class QuizController extends Controller
 
    
     public function destroy($id) {
-        //
+        
+        Quiz::findOrfail($id)->delete();
+        return redirect('/homequiz');
+        
     }
 }

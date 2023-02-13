@@ -13,6 +13,7 @@
             <th scope="col">descrição</th>
             <th scope="col">Botão para jogar</th>
             <th scope="col">Boão de edição</th>
+            <th scope="col">Botão de exclusão</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +24,13 @@
                     <td>{{ $quiz->description }}</td>
                     <td><a href="/homequiz/{{ $quiz->id }}" class="btn btn-success">Jogar</a></td>
                     <td><a href="#" class="btn btn-primary">Editar</a></td>
+                    <td>
+                        <form action="/homequiz/{{ $quiz->id }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger delete-btn">Excluir Quiz</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
