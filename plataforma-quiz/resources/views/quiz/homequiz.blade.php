@@ -23,7 +23,7 @@
                     <td>{{ $quiz->title }}</td>
                     <td>{{ $quiz->description }}</td>
                     <td><a href="/homequiz/{{ $quiz->id }}" class="btn btn-success">Jogar</a></td>
-                    <td><a href="#" class="btn btn-primary">Editar</a></td>
+                    <td><a href="/quiz/edit/{{ $quiz->id }}" class="btn btn-primary">Editar</a></td>
                     <td>
                         <form action="/homequiz/{{ $quiz->id }}" method="POST">
                             @csrf

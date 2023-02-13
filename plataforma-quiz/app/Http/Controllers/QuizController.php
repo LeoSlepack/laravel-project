@@ -62,12 +62,17 @@ class QuizController extends Controller
 
     
     public function edit($id) {
-        //
+
+        $quiz = Quiz::findOrfail($id);
+        return view('quiz.edit',['quiz'=> $quiz]);
+
     }
 
     
     public function update(Request $request, $id) {
-        //
+        
+        
+
     }
 
    
@@ -75,6 +80,6 @@ class QuizController extends Controller
         
         Quiz::findOrfail($id)->delete();
         return redirect('/homequiz');
-        
+
     }
 }

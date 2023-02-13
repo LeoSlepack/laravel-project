@@ -38,6 +38,7 @@ Route::get('/homequiz/create', [App\Http\Controllers\QuizController::class, 'cre
 Route::get('/homequiz/{id}', [App\Http\Controllers\QuizController::class, 'show'])->name('homequiz.show');
 Route::post("/homequiz",[App\Http\Controllers\QuizController::class, 'store'])->name('homequiz.store');
 Route::delete('/homequiz/{id}', [App\Http\Controllers\QuizController::class, 'destroy'])->name('homequiz.destroy');
+Route::get('/quiz/edit/{id}', [App\Http\Controllers\QuizController::class, 'edit'])->name('quiz.edit');
 
 
 
