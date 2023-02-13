@@ -21,7 +21,7 @@
         <tbody>
             @foreach($quizzes as $quiz)
                 <tr>
-                    <th scope="row"><img src="/imagens/quiz/{{ $quiz->image }}" alt="{{ $quiz->title }}"></th>
+                    <th scope="row"><img class="img-fluid" src="/imagens/quiz/{{ $quiz->image }}" alt="{{ $quiz->title }}"></th>
                     <td>{{ $quiz->title }}</td>
                     <td>{{ $quiz->description }}</td>
                     <td><a href="/homequiz/{{ $quiz->id }}" class="btn btn-success">Jogar</a></td>

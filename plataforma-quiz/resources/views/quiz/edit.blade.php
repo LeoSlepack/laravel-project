@@ -2,63 +2,22 @@
 @extends('adminlte::page')
 <!--ADMINLTE-->
 @section('content_header')
-<a href="/users"><x-adminlte-button label="Voltar a página inicial" theme="warning" /></a><br><br>
-<form action="/homequiz/update/{{ $quiz->id }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    @method('put')
-    <x-adminlte-input name="title"  id="title" type="text" value="{{ $quiz->title }}" placeholder="Insira o título do quiz" required/>
-
-    <x-adminlte-input-file class="img-preview" src="/imagens/quiz/{{ $quiz->image }}" type="file" id="image" name="image" label="imagem para quiz:" placeholder="Insira uma imagem para ilustrar seu quiz" igroup-size="lg" legend="Choose" multiple>
-    </x-adminlte-input-file> 
-
-    <x-adminlte-textarea value="{{ $quiz->description }}" name="description" id="description" label="Descrição:" rows=3  igroup-size="sm" placeholder="Descreva seu quiz required">
-    </x-adminlte-textarea>
-
-    <x-adminlte-input value="{{ $quiz->question }}" name="question"  id="question" type="text" label="Pergunta:" placeholder="Digite sua pergunta" required/>
-
-    <div class="form-group">
-        <label for="correctAnswers">Número de respostas corretas</label>
-        <select class="form-control" id="correctAnswers">
-            <option value="1" {{ old('num_correct_answers', 1) == 1 ? 'selected' : '' }}>1</option>
-            <option value="2" {{ old('num_correct_answers', 1) == 2 ? 'selected' : '' }}>2</option>
-        </select>
-    </div> 
-    <div id="answerInputs">
+<div class="container">
+    <form action="/quiz/update/{{ $quiz->id }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
+        <x-adminlte-input id="title" name="title" label="Título do quiz:" value="{{ $quiz->title }}" required/>
+        <x-adminlte-textarea id="description" name="description" label="Descrição:" placeholder="{{ $quiz->description }}" required/>
         <div class="form-group">
-            <label for="correctAnswer1">Resposta Correta 1</label>
-            <input value="{{ $quiz->answer }}" type="text" class="form-control" id="answer" name="answer" placeholder="Insira a resposta correta" required>
+            <x-adminlte-input-file type="file" id="image" name="image" label="Imagem:"/>
+            <img src="/imagens/quiz/{{ $quiz->image }}" class="img-fluid" alt="Imagem Quiz">
         </div>
-    </div> 
-    <div class="form-group">
-        <label for="incorrectanswer">Resposta Incorreta</label>
-        <input value="{{ $quiz->incorrectanswer }}" type="text" class="form-control" id="incorrectanswer" name="incorrectanswer" placeholder="Insira uma resposta incorreta" required>
-    </div> 
-    <input type="submit" class="btn btn-primary" value="Atualizar">
-</form>
-<script>
-    const correctAnswersSelect = document.querySelector("#correctAnswers");
-    const answerInputsContainer = document.querySelector("#answerInputs");
-
-    correctAnswersSelect.addEventListener("change", function() {
-    const numberOfCorrectAnswers = this.value;
-
-    // Remover inputs existentes
-    while (answerInputsContainer.firstChild) {
-    answerInputsContainer.removeChild(answerInputsContainer.firstChild);
-    }
-
-    // Adicionar novos inputs
-    for (let i = 1; i <= numberOfCorrectAnswers; i++) {
-    const newInput = document.createElement("div");
-    newInput.classList.add("form-group");
-    newInput.innerHTML = `
-    <label for="correctAnswer${i}">Resposta Correta ${i}</label>
-    <input type="text" class="form-control" id="correctAnswer${i}" placeholder="Insira a resposta correta">
-    `;
-    answerInputsContainer.appendChild(newInput);
-    }
-    });
-</script>
+        <x-adminlte-input id="question" name="question" label="Pergunta:" value="{{ $quiz->question }}" required/>
+        <x-adminlte-input id="answer" name="answer" label="Resposta correta:" value="{{ $quiz->answer }}" required/>
+        <x-adminlte-input id="incorrectanswer" name="incorrectanswer" label="Resposta incorreta:" value="{{ $quiz->incorrectanswer }}" required/>
+        <x-adminlte-button class="btn-flat" type="submit" label="Atualizar" theme="success" icon="fas fa-lg fa-save"/>
+    </form>
+</div>
 @stop
 
 

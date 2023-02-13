@@ -10,10 +10,12 @@
         <form role="form">
             <div class="card-body">
                 <div class="form-group">
-                    <img id="img-quiz-table" src="/imagens/quiz/{{ $quiz->image }}" class="img-fluid" alt="Imagem ilustração do quiz"> 
+                    <img src="/imagens/quiz/{{ $quiz->image }}" class="img-fluid" alt="Imagem ilustração do quiz"> 
                 </div>
-                <input class="form-control" id="description" value="{{ $quiz->description }}" readonly> <br>
-                <input class="form-control" id="question" value="{{ $quiz->question }}"readonly> <br>
+                <label for="description">Descrição:</label>
+                <input class="form-control" name="description" id="description" value="{{ $quiz->description }}" readonly><br>
+                <label for="question">Pergunta:</label>
+                <input class="form-control" name="question" id="question" value="{{ $quiz->question }}"readonly><br>
             <div class="form-group">
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="correctAnswer" id="answerTrue" value="true">
