@@ -29,8 +29,8 @@
         </div>
     </div> 
     <div class="form-group">
-        <label for="incorrectAnswer">Resposta Incorreta</label>
-        <input type="text" class="form-control" id="incorrectAnswer" name="incorrectAnswer" placeholder="Insira uma resposta incorreta" required>
+        <label for="incorrectanswer">Resposta Incorreta</label>
+        <input type="text" class="form-control" id="incorrectanswer" name="incorrectanswer" placeholder="Insira uma resposta incorreta" required>
     </div> 
     <input type="submit" class="btn btn-primary" value="Criar Quiz">
 </form>
