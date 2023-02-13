@@ -7,7 +7,7 @@
         <div class="card-header">
             <h3 class="card-title">{{ $quiz->title }}</h3>
         </div>
-        <form role="form">
+        <form >
             <div class="card-body">
                 <div class="form-group">
                     <img src="/imagens/quiz/{{ $quiz->image }}" class="img-fluid" alt="Imagem ilustração do quiz"> 
