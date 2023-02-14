@@ -34,6 +34,7 @@ class QuizController extends Controller
         $quiz->question = $request->question;
         $quiz->answer = $request->answer;
         $quiz->incorrectanswer = $request->incorrectanswer;
+        $quiz->texAnswer = $request->texAnswer;
 
         //upload de imagem
         if($request->hasFile('image') && $request->file('image')->isValid()) {
