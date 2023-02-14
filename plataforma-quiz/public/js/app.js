@@ -1,9 +1,16 @@
-var controllInput =1; 
+//Código responsável pela dinâmica do formulário de criação do quiz
+$(document).ready(function() {
+    // Esconder os campos de resposta correta, resposta incorreta e texto
+    $('#correctAnswerContainer, #incorrectAnswerContainer, #textAnswerContainer').hide();
 
-function addInput() {
-
-    controllInput++;
-    document.getElementById('quiz-create-form').insetAdjacentHTML('beforeend',' <div id="quiz-create-form" class="container"><form id="form-quiz-create" action="/homequiz" method="POST" enctype="multipart/form-data"><x-adminlte-input id="answer'+ controllInput +'" name="answer'+ controllInput +'" label="Resposta correta:" placeholder="Digite a resposta correta:" required/></form></div>' );
-    
-}
-
+    // Mostrar ou esconder os campos de resposta correta, resposta incorreta e texto
+    $('input[name="answerType"]').on('change', function() {
+        if (this.value === 'multipla') {
+        $('#correctAnswerContainer, #incorrectAnswerContainer').show();
+        $('#textAnswerContainer').hide();
+        } else if (this.value === 'texto') {
+        $('#textAnswerContainer').show();
+        $('#correctAnswerContainer, #incorrectAnswerContainer').hide();
+    }
+    });
+});

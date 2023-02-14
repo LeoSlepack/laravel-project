@@ -10,6 +10,7 @@
 <div class="container">
     <h1>Jogue ou crie seu Quiz</h1><br>
     <a href="{{route('homequiz.index')}}" class="btn btn-primary">Ver Quizzes</a>
+    <x-adminlte-button label="Crie seu Quiz" data-toggle="modal" data-target="#modalCustom" class="bg-teal"/>
     <x-adminlte-modal id="modalCustom" title="Crie seu Quiz" size="lg" theme="teal" icon="fas fa-bell" v-centered static-backdrop scrollable>
         <div style="height:800px;">
             <div id="quiz-create-form" class="container">
@@ -40,7 +41,6 @@
             </div>
         </div>
     </x-adminlte-modal>
-    <x-adminlte-button label="Crie seu Quiz" data-toggle="modal" data-target="#modalCustom" class="bg-teal"/>
     <a href="{{route('user.create')}}" class="btn btn-primary">Criar usuário</a><br><br>
 </div>
 <br>
@@ -85,26 +85,12 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
-
+<script src="\js\app.js"></script>
 <script>
     $(document).ready(function () {
+
         $('#table-users').DataTable();
-    });
 
-    $(document).ready(function() {
-        // Esconder os campos de resposta correta, resposta incorreta e texto
-        $('#correctAnswerContainer, #incorrectAnswerContainer, #textAnswerContainer').hide();
-
-        // Mostrar ou esconder os campos de resposta correta, resposta incorreta e texto
-        $('input[name="answerType"]').on('change', function() {
-            if (this.value === 'multipla') {
-            $('#correctAnswerContainer, #incorrectAnswerContainer').show();
-            $('#textAnswerContainer').hide();
-            } else if (this.value === 'texto') {
-            $('#textAnswerContainer').show();
-            $('#correctAnswerContainer, #incorrectAnswerContainer').hide();
-        }
-        });
     });
 </script>
 @endsection

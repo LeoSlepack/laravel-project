@@ -20,7 +20,7 @@ Route::get('/home', function () {
 Auth::routes();
 
 
-// Views Responsáveis pela paerte de usuários
+//Rotas das Views Responsáveis pela parte de usuários
 Route::get('/usuarios/adicionar', [App\Http\Controllers\UsersController::class, 'create'])->name('user.create');
 Route::post('/usuarios/adicionar', [App\Http\Controllers\UsersController::class, 'store'])->name('user.store');
 Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])->name('user.index');
@@ -29,7 +29,7 @@ Route::get('/edit/{id}', [App\Http\Controllers\UsersController::class, 'edit'])-
 Route::put('/usuario/update/{id}',[App\Http\Controllers\UsersController::class, 'update'])->name('user.update');
 Route::delete('/user/delete/{id}',[App\Http\Controllers\UsersController::class, 'destroy'])->name('user.destroy');
 
-///Views responsáveis pela parte dos quizzes
+//Rotas das Views responsáveis pela parte dos quizzes
 Route::get('/index', function () {
     return view('quiz.index');
 });
