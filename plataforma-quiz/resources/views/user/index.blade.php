@@ -41,11 +41,13 @@
             </div>
         </div>
     </x-adminlte-modal>
-    <a href="{{route('user.create')}}" class="btn btn-primary">Criar usuário</a><br><br>
+    
 </div>
 <br>
 <div class="container">
     <h1>Administração de usuários</h1><br>
+    <a href="{{route('user.create')}}" ><x-adminlte-info-box title="528" text="Criar novo usuário" icon="fas fa-lg fa-user-plus text-primary"
+    theme="gradient-primary" icon-theme="white"/></a><br><br>
     <div class="container">
         <table id="table-users" class="table">
             <thead>
