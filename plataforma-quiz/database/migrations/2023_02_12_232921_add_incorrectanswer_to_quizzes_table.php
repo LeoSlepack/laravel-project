@@ -10,7 +10,7 @@ return new class extends Migration
 
         Schema::table('quizzes', function (Blueprint $table) {
 
-            $table->string('incorrectanswer');
+            $table->string('incorrectanswer')->nullable();
 
         });
     }

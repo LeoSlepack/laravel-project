@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('incorrectanswers', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('incorrectanswer');
+        Schema::table('quizzes', function (Blueprint $table) {
+            
+            $table->string("texAnswer")->nullable();
+
         });
     }
 
@@ -27,6 +27,10 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('incorrectanswers');
+        Schema::table('quizzes', function (Blueprint $table) {
+            
+            $table->dropColumn('texAnswer');
+
+        });
     }
 };

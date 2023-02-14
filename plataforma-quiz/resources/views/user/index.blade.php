@@ -15,13 +15,27 @@
             <div id="quiz-create-form" class="container">
                 <form id="form-quiz-create" action="/homequiz" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <x-adminlte-input id="title" name="title" label="Título do quiz:" placeholder="Digite o título do seu quiz" required/>
-                    <x-adminlte-textarea id="description" name="description" label="Descrição:" placeholder="Descreva seu quiz" required/>
+                    <x-adminlte-input name="title" name="title" label="Titulo do Quiz:"/>
                     <x-adminlte-input-file type="file" id="image" name="image" label="Imagem:" placeholder="Imagem que descreva seu quiz"/>
+                    <x-adminlte-textarea id="description" name="description" label="Descrição:" placeholder="Descreva seu quiz" required/>
                     <x-adminlte-input id="question" name="question" label="Pergunta:" placeholder="Digite sua pergunta" required/>
-                    <x-adminlte-input id="answer" name="answer" label="Resposta correta:" placeholder="Digite a resposta correta:" required/>
-                    <x-adminlte-input id="incorrectanswer" name="incorrectanswer" label="Resposta incorreta:" placeholder="Digite a resposta incorreta:" required/>
-                    <x-adminlte-button class="btn-flat" type="submit" label="Criar Quiz" theme="success" icon="fas fa-lg fa-save"/>
+                    <div class="form-group">
+                        <label for="answerType">Tipo de Resposta</label>
+                    <div>
+                        <input type="radio" name="answerType" value="multipla" id="answerTypeMultipla"> Multipla Escolha<br>
+                        <input type="radio" name="answerType" value="texto" id="answerTypeTexto"> Texto
+                    </div>
+                    </div>
+                    <div class="form-group" id="correctAnswerContainer">
+                        <x-adminlte-input id="answer" name="answer" label="Resposta Correta:" placeholder="Digite a resposta correta"/>
+                    </div>
+                    <div class="form-group" id="incorrectAnswerContainer">
+                        <x-adminlte-input id="incorrectanswer" name="incorrectanswer" label="Resposta Incorreta:" placeholder="Digite a resposta incorreta"/>
+                    </div>
+                    <div class="form-group" id="textAnswerContainer">
+                        <x-adminlte-input id="texAnswer" name="texAnswer" label="Resposta Correta:" placeholder="Digite a resposta Correta"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
             </div>
         </div>
@@ -75,6 +89,22 @@
 <script>
     $(document).ready(function () {
         $('#table-users').DataTable();
+    });
+
+    $(document).ready(function() {
+        // Esconder os campos de resposta correta, resposta incorreta e texto
+        $('#correctAnswerContainer, #incorrectAnswerContainer, #textAnswerContainer').hide();
+
+        // Mostrar ou esconder os campos de resposta correta, resposta incorreta e texto
+        $('input[name="answerType"]').on('change', function() {
+            if (this.value === 'multipla') {
+            $('#correctAnswerContainer, #incorrectAnswerContainer').show();
+            $('#textAnswerContainer').hide();
+            } else if (this.value === 'texto') {
+            $('#textAnswerContainer').show();
+            $('#correctAnswerContainer, #incorrectAnswerContainer').hide();
+        }
+        });
     });
 </script>
 @endsection
