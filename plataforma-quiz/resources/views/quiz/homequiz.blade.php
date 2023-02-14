@@ -37,6 +37,48 @@
 <div class="container">
     <a href="/users"><x-adminlte-button label="Voltar a página inicial" theme="warning" /></a><br><br>
 </div>
+<form id="quizForm">
+  <div class="form-group">
+    <label for="quizTitle">Título do Quiz</label>
+    <input type="text" class="form-control" id="quizTitle">
+  </div>
+  <div class="form-group">
+    <label for="quizImage">Imagem</label>
+    <input type="file" class="form-control" id="quizImage">
+  </div>
+  <div class="form-group">
+    <label for="quizDescription">Descrição</label>
+    <textarea class="form-control" id="quizDescription"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="quizQuestion">Pergunta</label>
+    <input type="text" class="form-control" id="quizQuestion">
+  </div>
+  <div class="form-group">
+    <label for="answerType">Tipo de Resposta</label>
+    <div>
+      <input type="radio" name="answerType" value="multipla" id="answerTypeMultipla"> Multipla Escolha
+      <br>
+      <input type="radio" name="answerType" value="texto" id="answerTypeTexto"> Texto
+    </div>
+  </div>
+  <div class="form-group" id="correctAnswerContainer">
+    <label for="correctAnswer">Resposta Correta</label>
+    <input type="text" class="form-control" id="correctAnswer">
+  </div>
+  <div class="form-group" id="incorrectAnswerContainer">
+    <label for="incorrectAnswer">Resposta Incorreta</label>
+    <input type="text" class="form-control" id="incorrectAnswer">
+  </div>
+  <div class="form-group" id="textAnswerContainer">
+    <label for="textAnswer">Texto</label>
+    <input type="text" class="form-control" id="textAnswer">
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+
+
 @stop
 <!--JS DATATABLES-->
 @section('js')
@@ -48,5 +90,24 @@
     $(document).ready(function () {
            $('#table-quizzes').DataTable();
     });
+
+    $(document).ready(function() {
+  // Esconder os campos de resposta correta, resposta incorreta e texto
+  $('#correctAnswerContainer, #incorrectAnswerContainer, #textAnswerContainer').hide();
+
+  // Mostrar ou esconder os campos de resposta correta, resposta incorreta e texto
+  $('input[name="answerType"]').on('change', function() {
+    if (this.value === 'multipla') {
+      $('#correctAnswerContainer, #incorrectAnswerContainer').show();
+      $('#textAnswerContainer').hide();
+    } else if (this.value === 'texto') {
+      $('#textAnswerContainer').show();
+      $('#correctAnswerContainer, #incorrectAnswerContainer').hide();
+    }
+  });
+});
 </script>
 @endsection
+
+
+
